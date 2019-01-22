@@ -26,9 +26,10 @@ $(function(){
 	});
 });
 </script>
+
 <center>
 <div style="padding: 10px; background-color: pink;">
-    <h2>이번주 당첨번호를 알고 싶으신가요? ${loginId} </h2>
+    <h2>이번주 당첨번호를 알고 싶으신가요?</h2>
     <h3>
         <a href="#" id="moveCheckNum">당첨번호 확인하러 이동</a>
     </h3>
