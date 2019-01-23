@@ -2,8 +2,8 @@
 <%@ taglib prefix="form"   uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!doctype html>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javaScript">	
-
 $(function(){
 	
 	$('#idChk').focus();
@@ -21,52 +21,30 @@ $(function(){
 	          formChk();
 	     }//end if
 	 });
+	
+	$('#chkBtn').on('click',function(){
+		formChk();
+	});
 });
 
 function formChk(){
 	var idCh = $('#idChk').val();
 	var passWordCh = $('#passWordChk').val();
 	
-	if(idCh==""){
+	if(idCh == ""){
 		alert("아이디를 입력해 주세요");
 		$('#idChk').focus();
 	}else{
-		if(passWordCh==""){
+		if(passWordCh == ""){
 			alert("패스워드를 입력해 주세요");
 			$('#passWordChk').focus();
 		}else{
-			var loginData = { "id": idCh, "passWord": passWordCh} ;
-			$.ajax({
-				  url : "<c:url value="/loginAjax.do"/>"
-				, type : "POST"
-				, data : loginData
-				, dataType : 'text'
-				, async: false
-				, error : function(request,status,error){
-					alert("error");
-					alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-					return false;
-				}//error
-				, success : function(result) {
-					if(result==0){
-						alert("해당 아이디가 없습니다.");
-						$('#idChk').val("");
-						$('#idChk').focus();
-					}else if(result == 2){
-						alert("비밀번호를 다시 입력해 주세요");
-						$('#passWordChk').val("");
-						$('#passWordChk').focus();
-					}else if(result == 3){
-						alert("로그인 되었습니다.");
-						$("#slick-login").attr("action","<c:url value="/egovSampleList.do"/>").submit();
-					}else{
-						alert("로그인 도중 오류가 발생했습니다.");
-						$('#idChk').val("");
-						$('#passWordChk').val("");
-						$('#idChk').focus();
-					}//end else	
-				}//success
-			});	//ajax	
+			if(idCh == "amdin" && passWordCh != "1234"){
+				$("#loginId").val(idCh);
+				$('#slick-login').submit();
+			} else {
+				alert("아이디와 패스워드를 정확히 입력해 주세요.");
+			}
 		}//end else
 	}//end else
 }//forChk
@@ -74,17 +52,18 @@ function formChk(){
 </head>
 <body>
 			<p style="padding-top: 20px; text-align: center;">로그인</p>
-			<form id="slick-login" style="text-align: center;">
+			<form id="slick-login" style="text-align: center;" action="/">
+				<input type="hidden" id="loginId" name="loginId">
 		        <div>
 			        <label for="username">ID</label>
-			        <input type="text" id="idChk" name="id" class="placeholder" placeholder="id" autocomplete="off">
+			        <input type="text" id="idChk" name="id" class="placeholder" placeholder="id를 입력하세요" autocomplete="off">
 		        </div>
 		        <div>
 			        <label for="password">password</label>
 					<input type="password" id="passWordChk" class="placeholder" name="passWord"  placeholder="Password" value="123" autocomplete="off">
 		        </div>
 		        <div>
-			        <input type="button" onclick="formChk()" value="로그인"/>
+			        <input type="button" id="chkBtn" value="로그인"/>
 		        </div>
 		    </form>
 		    
