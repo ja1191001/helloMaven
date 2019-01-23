@@ -58,7 +58,12 @@ public class HelloController {
   public ModelAndView checkNum(
           @RequestParam(value = "loginId", required = false, defaultValue = "Maven") String loginId) {
       System.out.println("in checkNum");
+      System.out.println(loginId.equals("Maven"));
 
+      if(loginId.equals("Maven")) {
+    	  ModelAndView mv = new ModelAndView("error");
+    	  return mv;
+      }
       ModelAndView mv = new ModelAndView("checkNum");
       mv.addObject("loginId", loginId);
       mv.addObject("message", message);

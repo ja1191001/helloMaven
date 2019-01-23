@@ -13,16 +13,24 @@ $(function(){
 	var loginId = '${loginId}';
 	
 	if(loginId != 'Maven'){
+		$('#logoutAlam').prop('hidden', false);
 		$('#loginAlam').prop('hidden', true);
+	} else {
+		$('#loginAlam').prop('hidden', false);
+		$('#logoutAlam').prop('hidden', true);
 	}
 	
 	$('#moveCheckNum').on('click', function() {
-		alert('전송');
 		$('#checkNum').submit();
 	});
 	
 	$('#moveLogin').on('click', function() {
 		location.href="/login.do";
+	});
+
+	$('#moveLogout').on('click', function() {
+		$("#loginId").val("");
+		location.href="/";
 	});
 });
 </script>
@@ -38,6 +46,12 @@ $(function(){
     <h2 style="color: red; padding-top: 130px;">확인 전에 로그인 잊지 마세요!!!</h2>
     <h3>
         <a href="#" id="moveLogin" >로그인</a>
+    </h3>
+</div>
+<div id="logoutAlam">
+    <h2 style="color: red; padding-top: 130px;">로그아웃 잊지 마세요!!!</h2>
+    <h3>
+        <a href="#" id="moveLogout" >로그아웃</a>
     </h3>
 </div>
 </center>

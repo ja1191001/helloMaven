@@ -39,7 +39,7 @@ function formChk(){
 			alert("패스워드를 입력해 주세요");
 			$('#passWordChk').focus();
 		}else{
-			if(idCh == "amdin" && passWordCh != "1234"){
+			if(idCh == "admin" && passWordCh == "1234"){
 				$("#loginId").val(idCh);
 				$('#slick-login').submit();
 			} else {
@@ -48,6 +48,10 @@ function formChk(){
 		}//end else
 	}//end else
 }//forChk
+
+function goMain(){
+	window.location.href = 'http://localhost:8080/';
+}
 </script>
 </head>
 <body>
@@ -68,6 +72,6 @@ function formChk(){
 		    </form>
 		    
 		    <div style="padding-top: 50px; text-align: center;">
-		        <input type="button" onclick="javascript:history.back();" value="돌아가기"/>
+		        <input type="button" onclick="goMain();" value="돌아가기"/>
 		    </div>
 </body>

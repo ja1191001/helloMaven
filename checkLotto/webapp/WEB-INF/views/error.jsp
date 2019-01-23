@@ -11,9 +11,6 @@
 </head>
 <script type="text/javascript">
 $(function(){
-	$('#moveCheckNum').on('click', function() {
-		alert('이동할까요?');
-	});
 	$('#moveLogin').on('click', function() {
 		location.href="/login.do";
 	});
@@ -22,9 +19,6 @@ $(function(){
 <center>
     <h2 style="color: red; padding-top: 130px;">로그인을 해주세요!!!</h2>
     <h3>
-        <a href="#" id="moveLogin" >로그인</a>
+        <a href="#" id="moveLogin" >로그인하러 가기</a>
     </h3>
 </center>
-<form>
-	<input type="hidden" id="loginId" name="loginId" value="${loginId}"/>
-</form>
