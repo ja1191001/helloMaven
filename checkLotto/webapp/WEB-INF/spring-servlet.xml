@@ -14,7 +14,7 @@ http://www.springframework.org/schema/beans/spring-beans.xsd    http://www.sprin
 http://www.springframework.org/schema/context/spring-context.xsd">
 
         <context:annotation-config />
-        <context:component-scan base-package="com.maven"/>
+        <context:component-scan base-package="com.checkLotto"/>
         
         <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 	        <property name="prefix" value="/WEB-INF/views/" />

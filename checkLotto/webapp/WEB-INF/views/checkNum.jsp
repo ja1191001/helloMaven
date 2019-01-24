@@ -1,17 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html>
+<html>
 <head>
-<meta charset="EUC-KR">
-<title>¹øÈ£È®ÀÎ</title>
+	<title>ë²ˆí˜¸í™•ì¸</title>
 </head>
- <center>
-    <h2>ÀÌ¹øÁÖ ´çÃ· ¹øÈ£</h2>
-    <h2>
-        ${message}
-    </h2>
-    
-     <div style="padding-top: 50px; text-align: center;">
-        <input type="button" onclick="javascript:history.back();" value="µ¹¾Æ°¡±â"/>
-    </div>
-</center>
+<body>
+	<div style="text-align: center;">
+		<h2>ì´ë²ˆì£¼ ë‹¹ì²¨ ë²ˆí˜¸</h2>
+		<h2> ${message}	</h2>
+		
+		<div style="padding-top: 50px; text-align: center;">
+			<input type="button" onclick="javascript:history.back();" value="ëŒì•„ê°€ê¸°"/>
+		</div>
+	</div>
+</body>
+</html>
