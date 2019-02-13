@@ -54,7 +54,7 @@
 		
 			$('#moveLogout').on('click', function() {
 				$("#loginId").val("");
-				sessionStorage.removeItem("ID");
+				sessionStorage.removeItem("ID"); // 세션삭제
 				location.href="/";
 			});
 		});
